@@ -1,0 +1,32 @@
+# Папка с файлами соревнования (train.csv, test.csv, sample_submission.csv)
+data_dir: data
+
+# Можно не трогать: id и target берутся из sample_submission
+id_col: null
+target: null
+
+# auto | binary | multiclass | regression
+task: auto
+
+# Метрика соревнования (смотри вкладку Evaluation на Kaggle):
+# auto | auc | logloss | accuracy | f1_macro | map3 | rmse | mae | rmsle
+metric: auto
+
+n_folds: 5
+seed: 42
+models: [lgbm, catboost, xgb]
+
+# Колонки, которые выкинуть (утечки, мусор)
+drop_cols: []
+# Явно указать категориальные колонки (строковые определяются сами)
+cat_cols: []
+# Считать целочисленную колонку категорией, если уникальных значений <= N (0 — выключено)
+int_as_cat_max_unique: 0
+
+# Переопределение гиперпараметров моделей
+model_params:
+  lgbm: {}
+  catboost: {}
+  xgb: {}
+
+output_dir: outputs
